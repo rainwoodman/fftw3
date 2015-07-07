@@ -53,7 +53,6 @@ static void transpose_chunks(int *sched, int n_pes, int my_pe,
 {
      if (sched) {
 	  int i;
-	  MPI_Status status;
 
 	  /* TODO: explore non-synchronous send/recv? */
 
@@ -74,7 +73,7 @@ static void transpose_chunks(int *sched, int n_pes, int my_pe,
 				      O + rbo[pe], (int) (rbs[pe]),
 				      FFTW_MPI_TYPE,
 				      pe, (pe * n_pes + my_pe) & 0xffff,
-				      comm, &status);
+				      comm, MPI_STATUS_IGNORE);
 		    }
 	       }
 
@@ -92,7 +91,7 @@ static void transpose_chunks(int *sched, int n_pes, int my_pe,
 				      O + rbo[pe], (int) (rbs[pe]),
 				      FFTW_MPI_TYPE,
 				      pe, (pe * n_pes + my_pe) & 0xffff,
-				      comm, &status);
+				      comm, MPI_STATUS_IGNORE);
 	       }
 	  }
      }
