@@ -59,3 +59,5 @@ int XM(mkplans_posttranspose)(const problem_mpi_transpose *p, planner *plnr,
 void XM(transpose_pairwise_register)(planner *p);
 void XM(transpose_alltoall_register)(planner *p);
 void XM(transpose_recurse_register)(planner *p);
+void XM(transpose_pairwise_transposed_register)(planner *p);
+void XM(transpose_alltoall_transposed_register)(planner *p);
