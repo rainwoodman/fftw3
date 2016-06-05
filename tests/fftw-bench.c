@@ -212,7 +212,7 @@ void setup(bench_problem *p)
       * properly */
      {
           void *ptr = FFTW(malloc(42));
-          BENCH_ASSERT(FFTW(alignment_of)(ptr) == 0);
+          BENCH_ASSERT(FFTW(alignment_of)((double*)ptr) == 0);
           FFTW(free(ptr));
      }
 
