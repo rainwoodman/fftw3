@@ -50,6 +50,12 @@ typedef plan_rdft plan_mpi_transpose;
 #define MKPLAN_MPI_TRANSPOSE(type, adt, apply) \
   (type *)X(mkplan_rdft)(sizeof(type), adt, apply)
 
+/* transpose-pairwise-transposed.c */
+int XM(mkplans_pretranspose)(const problem_mpi_transpose *p, planner *plnr,
+			      R *I, R *O, int my_pe,
+			      plan **cld2, plan **cld2rest, plan **cld3,
+			      INT *rest_Ioff, INT *rest_Ooff);
+
 /* transpose-pairwise.c: */
 int XM(mkplans_posttranspose)(const problem_mpi_transpose *p, planner *plnr,
 			      R *I, R *O, int my_pe,
